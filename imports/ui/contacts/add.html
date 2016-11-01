@@ -3,7 +3,86 @@
     <div class="row">
       <div class="col-md-4">
         <h4>Add a contact</h4>
+
+        <form name="addContactForm">
+          <div class="form-group">
+            <label for="first-name">First Name (* required)</label>
+              <input type="text" name="firstName" id="firstName"
+              class="form-control" required="required">
+          </div>
+          <!-- form-group -->
+
+          <div class="form-group">
+            <label for="last-name">Last Name (* required)</label>
+              <input type="text" name="lastName" id="lastName"
+              class="form-control" required="required">
+          </div>
+          <!-- form-group -->
+
+          <div class="form-group">
+            <label for="birthday">Birthday (* required)</label>
+              <input type="text" name="birthday" id="birthday"
+              class="form-control">
+          </div>
+          <!-- form-group -->
+
+          <div class="form-group">
+            <label for="contactType">Contact type</label>
+            <select name="contactType" id="contactType" class="form-control">
+              <option value="">Select one</option>
+              <option value="friends">Friends</option>
+              <option value="collegues">Colleagues</option>
+            </select>
+          </div>
+          <!-- form-group -->
+
+          <firldset>
+            <div class="form-group">
+              <label for="phoneType">Phone type</label>
+              <select name="phoneType" id="phoneType" class="form-control">
+                <option value="">Select one</option>
+                <option value="friends">personal</option>
+                <option value="collegues">work</option>
+              </select>
+            </div>
+            <!-- form-group -->
+
+            <div class="form-group">
+              <label for="phoneNumber">Phone number</label>
+             <input type="text" name="phoneNumber" id="phoneNumber" class="form-control">
+            </div>
+          </firldset>
+          <!-- form-group -->
+
+          <firldset>
+            <div class="form-group">
+              <label for="emailType">Email type</label>
+              <select name="emailType" id="emailType" class="form-control">
+                <option value="">Select one</option>
+                <option value="friends">personal</option>
+                <option value="collegues">work</option>
+              </select>
+            </div>
+            <!-- form-group -->
+
+
+            <div class="form-group">
+              <label for="emailAddress">Email address</label>
+             <input type="email" name="emailAddress" id="emailAddress" class="form-control">
+            </div>
+          </firldset>
+          <!-- form-group -->
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Save contact</button>
+          </div>
+          <!-- form-group -->
+
+        </form>
       </div>
     </div>
   </div>
+  <script>
+    $('#birthday').datepicker();
+  </script>
 </template>
