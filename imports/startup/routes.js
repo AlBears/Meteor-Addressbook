@@ -11,3 +11,10 @@ FlowRouter.route('/contacts/add', {
     BlazeLayout.render('addContact');
   }
 });
+
+FlowRouter.route('/contacts/list', {
+  name: 'listContacts',
+  action () {
+    BlazeLayout.render('listContacts');
+  }
+});

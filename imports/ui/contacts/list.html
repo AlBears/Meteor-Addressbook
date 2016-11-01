@@ -1,0 +1,19 @@
+<template name="listContacts">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h4>View all contacts</h4>
+
+        {{#if Template.subscriptionsReady}}
+          {{#each contacts}}
+            <p>{{ firstName }}</p>
+          {{else}}
+            <p>No contacts are registered</p>
+          {{/each}}
+          {{else}}
+            <p>Loading data ...</p>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</template>
