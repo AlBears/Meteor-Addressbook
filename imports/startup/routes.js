@@ -18,3 +18,10 @@ FlowRouter.route('/contacts/list', {
     BlazeLayout.render('listContacts');
   }
 });
+
+FlowRouter.route('/contacts/edit/:id', {
+  name: 'editContact',
+  action () {
+    BlazeLayout.render('editContact');
+  }
+})
