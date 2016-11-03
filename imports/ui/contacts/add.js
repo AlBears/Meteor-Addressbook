@@ -36,6 +36,7 @@ Template.addContact.events({
     }
 
     Meteor.call('contacts.addContact', newContact);
+    FlowRouter.go('listContacts');
     console.log(newContact);
     toastr.success('Contact was added');
   }

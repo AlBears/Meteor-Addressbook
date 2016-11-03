@@ -11,3 +11,10 @@
      return Contacts.find({}, { sort: { firstName: 1 } });
    }
  });
+
+ Template.listContacts.events({
+   'click [data-remove="contact"]' () {
+     Meteor.call('contacts.removeContact', this._id);
+     toastr.info('Contact was removed');
+   }
+ })
