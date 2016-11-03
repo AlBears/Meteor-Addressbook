@@ -5,11 +5,67 @@
         <h4>View all contacts</h4>
 
         {{#if Template.subscriptionsReady}}
-          {{#each contacts}}
-            <p>{{ firstName }}</p>
-          {{else}}
-            <p>No contacts are registered</p>
-          {{/each}}
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Birthday</th>
+                <th>Phones</th>
+                <th>Emails</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each contacts}}
+              <tr>
+                <td>{{firstName}}</td>
+                <td>{{lastName}}</td>
+                <td>
+                  {{#if birthday}}
+                  {{formatDate birthday}}
+                  {{else}}
+                  Not registered
+                  {{/if}}
+                </td>
+                <td>
+                  <ul class="list-unstyled">
+                    {{#each phones}}
+                    <li>
+                      <span class="label label-primary label-capitalize">{{type}}</span>
+                      {{phone}}
+                    </li>
+                    {{else}}
+                    <li>Not registered</li>
+                    {{/each}}
+                  </ul>
+                </td>
+                <td>
+                  <ul class="list-unstyled">
+                    {{#each emails}}
+                    <li>
+                      <span class="label label-primary label-capitalize">{{type}}</span>
+                      {{email}}
+                    </li>
+                    {{else}}
+                    <li>Not registered</li>
+                    {{/each}}
+                  </ul>
+                </td>
+                <td>
+                  <div class="btn-group">
+                    <a href="/contacts/edit/{{_id}}" class="btn btn-default btn-sm">Edit</a>
+                    <button class="btn-danger btn-sm" data-remove="contact">Remove</button>
+                  </div>
+                </td>
+              </tr>
+              {{else}}
+                <tr>
+                  <td colspan="6">No contacts are registered</td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
           {{else}}
             <p>Loading data ...</p>
         {{/if}}

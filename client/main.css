@@ -2,3 +2,7 @@
 body {
   padding-top: 0;
 }
+
+.label-capitalize {
+  text-transform: capitalize;
+}
