@@ -26,6 +26,44 @@ Meteor.methods({
         contactType: updatedContact.contactType,
       }
     });
+  },
+
+  'contacts.updatePhone' (id, phoneData){
+    if (!Meteor.userId()){throw new Meteor.Error('not-authorized'); }
+    Contacts.update({ _id: id, owner: this.userId }, {
+      $push: {
+        phones: phoneData
+      }
+    });
+  },
+  'contacts.updateEmail' (id, emailData){
+    if (!Meteor.userId()){throw new Meteor.Error('not-authorized'); }
+    Contacts.update({ _id: id, owner: this.userId }, {
+      $push: {
+        emails: emailData
+      }
+    });
+  },
+  'contacts.removePhone' (id, phoneNumber){
+    if (!Meteor.userId()){throw new Meteor.Error('not-authorized'); }
+    Contacts.update({ _id: id, owner: this.userId }, {
+      $pull: {
+        phones: {
+          phone: phoneNumber
+        }
+      }
+    });
+  },
+
+  'contacts.removeEmail' (id, emailAddress){
+    if (!Meteor.userId()){throw new Meteor.Error('not-authorized'); }
+    Contacts.update({ _id: id, owner: this.userId }, {
+      $pull: {
+        emails: {
+          email: emailAddress
+        }
+      }
+    });
   }
 
 });
