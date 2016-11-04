@@ -15,3 +15,21 @@ Template.editContact.helpers({
     return Contacts.findOne(docId);
   }
 });
+
+Template.editContact.events({
+  'submit [name="editContactForm"]' (event){
+    event.preventDefault();
+
+    let updatedContact = {};
+    updatedContact.firstName = event.target.firstName.value;
+    updatedContact.lastName = event.target.lastName.value;
+    updatedContact.birthday = new Date(event.target.lastName.value);
+    updatedContact.contactType = event.target.contactType.value;
+
+    let id = FlowRouter.getParam('id');
+    Meteor.call('contacts.updateContact', id, updatedContact);
+    FlowRouter.go('listContacts');
+    toastr.success('Contact was updated');
+
+  }
+})
