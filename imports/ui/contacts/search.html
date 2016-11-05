@@ -7,15 +7,83 @@
     </div>
 
     <div class="row">
-      {{ >EasySearch.Input index = contactsIndex }}
+      <div class="col-md-8">
+        <form action="" class="form-horizontal">
+          <div class="form-group">
+            <label for="searchTerm" class="control-label col-md-2">Search for</label>
+            <div class="col-md-6">
+              {{>EasySearch.Input index=contactsIndex attributes=inputAttributes}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contactType" class="control-label col-md-2">Contact type</label>
+            <div class="col-md-6">
+              <select name="contactType" id="contactType" class="form-control">
+                <option value="">All</option>
+                <option value="friends">Friends</option>
+                <option value="collegues">Colleagues</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
 
     <div class="row">
       {{ #EasySearch.Each index = contactsIndex }}
       <div class="col-md-3">
-        <p>
-          {{ firstName }}
-        </p>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Contact <small>{{contactType}}</small></h3>
+            </div>
+
+            <div class="list-group">
+              <div class="list-group-item">
+                <p class="list-group-item-text">First name</p>
+                <h4 class="list-group-item-heading">{{firstName}}</h4>
+              </div>
+
+              <div class="list-group-item">
+                <p class="list-group-item-text">Last name</p>
+                <h4 class="list-group-item-heading">{{lastName}}</h4>
+              </div>
+
+              <div class="list-group-item">
+                <p class="list-group-item-text">Birthday</p>
+                <h4 class="list-group-item-heading">{{formatDate birthday}}</h4>
+              </div>
+
+              <div class="list-group-item">
+                <p class="list-group-item-text">Phones</p>
+                <ul class="list-unstyled">
+                  {{#each phones}}
+                  <li>
+                    <span class="label label-primary label-capitalize">{{type}}</span>
+                    {{phone}}
+                  </li>
+                  {{else}}
+                  <li>Not registered</li>
+                  {{/each}}
+                </ul>
+              </div>
+
+              <div class="list-group-item">
+                <p class="list-group-item-text">Emails</p>
+                <ul class="list-unstyled">
+                  {{#each emails}}
+                  <li>
+                    <span class="label label-primary label-capitalize">{{type}}</span>
+                    {{email}}
+                  </li>
+                  {{else}}
+                  <li>Not registered</li>
+                  {{/each}}
+                </ul>
+              </div>
+
+            </div>
+          </div>
       </div>
       {{ /EasySearch.Each }}
     </div>
