@@ -5,3 +5,4 @@ import './ui/partials/navbar.html';
 import './ui/contacts/add';
 import './ui/contacts/list';
 import './ui/contacts/edit';
+import './ui/contacts/search';

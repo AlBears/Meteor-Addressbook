@@ -1,0 +1,30 @@
+<template name="searchContacts">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h4>Search contacts</h4>
+      </div>
+    </div>
+
+    <div class="row">
+      {{ >EasySearch.Input index = contactsIndex }}
+    </div>
+
+    <div class="row">
+      {{ #EasySearch.Each index = contactsIndex }}
+      <div class="col-md-3">
+        <p>
+          {{ firstName }}
+        </p>
+      </div>
+      {{ /EasySearch.Each }}
+    </div>
+    {{#EasySearch.ifNoResults index=contactsIndex}}
+      <div class="row">
+        <div class="col-md-12">
+          <p>No results found</p>
+        </div>
+      </div>
+    {{/EasySearch.ifNoResults}}
+  </div>
+</template>

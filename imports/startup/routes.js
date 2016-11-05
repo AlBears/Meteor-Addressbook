@@ -24,4 +24,11 @@ FlowRouter.route('/contacts/edit/:id', {
   action () {
     BlazeLayout.render('editContact');
   }
-})
+});
+
+FlowRouter.route('/contacts/search', {
+  name: 'searchContacts',
+  action () {
+    BlazeLayout.render('searchContacts');
+  }
+});
