@@ -5,28 +5,38 @@ FlowRouter.route('/', {
   }
 });
 
-FlowRouter.route('/contacts/add', {
+let contacts = FlowRouter.group({
+  prefix: '/contacts',
+  name: 'contacts',
+  triggersEnter: [
+    () => {
+      if (!Meteor.userId()){ FlowRouter.go('home'); }
+    }
+  ]
+})
+
+contacts.route('/add', {
   name: 'addContact',
   action () {
     BlazeLayout.render('addContact');
   }
 });
 
-FlowRouter.route('/contacts/list', {
+contacts.route('/list', {
   name: 'listContacts',
   action () {
     BlazeLayout.render('listContacts');
   }
 });
 
-FlowRouter.route('/contacts/edit/:id', {
+contacts.route('/edit/:id', {
   name: 'editContact',
   action () {
     BlazeLayout.render('editContact');
   }
 });
 
-FlowRouter.route('/contacts/search', {
+contacts.route('/search', {
   name: 'searchContacts',
   action () {
     BlazeLayout.render('searchContacts');

@@ -25,6 +25,7 @@ pcuci:bootcards
 
 # Accounts
 accounts-password
+gwendall:auth-client-callbacks
 
 
 

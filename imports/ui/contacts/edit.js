@@ -23,8 +23,11 @@ Template.editContact.events({
     let updatedContact = {};
     updatedContact.firstName = event.target.firstName.value;
     updatedContact.lastName = event.target.lastName.value;
-    updatedContact.birthday = new Date(event.target.lastName.value);
     updatedContact.contactType = event.target.contactType.value;
+
+    if (!_.isEmpty(event.target.birthday.value)) {
+      updatedContact.birthday = new Date(event.target.birthday.value);
+    }
 
     let id = FlowRouter.getParam('id');
     Meteor.call('contacts.updateContact', id, updatedContact);

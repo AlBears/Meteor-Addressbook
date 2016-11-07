@@ -5,7 +5,7 @@ Template.registerHelper('formatDate', (date) => {
 });
 
 Template.registerHelper('formatInputDate', (date) => {
-  return moment(date).format('YYYY-MM-DD');
+  return date ? moment(date).format('YYYY-MM-DD') : '';
 });
 
 Template.registerHelper('selectedIfEquals', (value, check) => {
