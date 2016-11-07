@@ -34,7 +34,7 @@
             <select name="contactType" id="contactType" class="form-control">
               <option value="">Select one</option>
               <option value="friends" {{selectedIfEquals contact.contactType 'friends'}}>Friends</option>
-              <option value="collegues" {{selectedIfEquals contact.contactType 'collegues'}}>Colleagues</option>
+              <option value="colleagues" {{selectedIfEquals contact.contactType 'colleagues'}}>Colleagues</option>
             </select>
           </div>
 
@@ -88,13 +88,13 @@
           <h4>Add phone</h4>
           <form name="updatePhoneForm">
 
-            <firldset>
+            <fieldset>
               <div class="form-group">
                 <label for="phoneType">Phone type</label>
                 <select name="phoneType" id="phoneType" class="form-control">
                   <option value="">Select one</option>
-                  <option value="friends">personal</option>
-                  <option value="collegues">work</option>
+                  <option value="personal">personal</option>
+                  <option value="work">work</option>
                 </select>
               </div>
               <!-- form-group -->
@@ -103,7 +103,7 @@
                 <label for="phoneNumber">Phone number</label>
                <input type="text" name="phoneNumber" id="phoneNumber" class="form-control">
               </div>
-            </firldset>
+            </fieldset>
 
             <div class="form-group">
               <button class="btn btn-primary" type="submit">Add phone</button>
@@ -115,13 +115,13 @@
             <h4>Add email</h4>
             <form name="updateEmailForm">
 
-              <firldset>
+              <fieldset>
                 <div class="form-group">
                   <label for="emailType">Email type</label>
                   <select name="emailType" id="emailType" class="form-control">
                     <option value="">Select one</option>
-                    <option value="friends">personal</option>
-                    <option value="collegues">work</option>
+                    <option value="personal">personal</option>
+                    <option value="work">work</option>
                   </select>
                 </div>
                 <!-- form-group -->
@@ -131,7 +131,7 @@
                   <label for="emailAddress">Email address</label>
                  <input type="email" name="emailAddress" id="emailAddress" class="form-control">
                 </div>
-              </firldset>
+              </fieldset>
 
               <div class="form-group">
                 <button class="btn btn-primary" type="submit">Add email</button>
