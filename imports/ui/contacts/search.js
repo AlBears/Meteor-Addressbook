@@ -11,3 +11,9 @@ Template.searchContacts.helpers({
     return { 'class': 'form-control', 'id': 'searchTerm'}
   }
 });
+
+Template.searchContacts.events({
+  'change [name="contactType"]'(event){
+    ContactsIndex.getComponentMethods().addProps('categoryFilter', $(event.target).val());
+  }
+})
