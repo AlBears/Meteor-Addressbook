@@ -44,3 +44,7 @@ insecure
 
 # Schema
 aldeed:collection2
+
+# Autoform
+aldeed:autoform
+aldeed:autoform-bs-datepicker

@@ -80,8 +80,22 @@
 
         </form>
       </div>
+
+
+      <div class="col-md-6">
+        <h4>Add a contact (Af)</h4>
+        {{> quickForm collection=contactsCollection id='afAddContactForm' type='method'
+      meteormethod='contacts.addContact' buttonContent="Save contact (Af)"}}
+      </div>
+
+
+
     </div>
   </div>
+
+
+
+
   <script>
     $('#birthday').datepicker();
   </script>

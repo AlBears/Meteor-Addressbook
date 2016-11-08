@@ -38,12 +38,21 @@ Schemas.Contacts = new SimpleSchema({
   contactType: {
     type: String,
     allowedValues: ["friends", "colleagues"],
-    optional: true
+    optional: true,
+    autoform: {
+      options: [
+        { label: 'Friends', value: 'friends'},
+        { label: 'Colleagues', value: 'colleagues'}
+      ]
+    }
   },
 
   birthday: {
     type: Date,
-    optional: true
+    optional: true,
+    autoform: {
+      type: 'bootstrap-datepicker'
+    }
   },
 
   phones: {
@@ -57,11 +66,23 @@ Schemas.Contacts = new SimpleSchema({
   },
 
   createdAt: {
-    type: Date
+    type: Date,
+    autoform: {
+      type: 'hidden'
+    },
+    autoValue: function(){
+      return new Date();
+    }
   },
 
   owner: {
-    type: String
+    type: String,
+    autoform: {
+      type: 'hidden'
+    },
+    autoValue: function(){
+      return this.userId;
+    }
   }
 });
 

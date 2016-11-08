@@ -1,5 +1,7 @@
 import './add.html';
 
+import { Contacts } from '../../api/contacts';
+
 Template.addContact.events({
 
   'submit [name="addContactForm"]' (event) {
@@ -42,3 +44,9 @@ Template.addContact.events({
   }
 
 });
+
+Template.addContact.helpers({
+  'contactsCollection' () {
+    return Contacts;
+  }
+})
